@@ -76,6 +76,12 @@ h1 {
   color: #166534;
 }
 
+.message.error {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
 .formulario {
   display: grid;
   gap: 16px;
@@ -129,6 +135,7 @@ button {
   background: #0f766e;
   color: white;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
 }
 
 button:hover:not(:disabled) {
@@ -145,14 +152,16 @@ button.secondary {
   background: #475569;
 }
 
+/* ✅ FIX: tabla con scroll horizontal en vez de desbordarse */
 .tabla {
   padding: 18px 20px 24px;
+  overflow-x: auto;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 760px;
+  min-width: 580px;
 }
 
 thead {
@@ -161,11 +170,11 @@ thead {
 
 th,
 td {
-  padding: 14px 14px;
+  padding: 12px 10px;
   border-bottom: 1px solid #e5e7eb;
   text-align: left;
   vertical-align: middle;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 th {
@@ -185,17 +194,39 @@ tr:nth-child(even) td {
   background: #fbfbfe;
 }
 
+/* ✅ FIX: botones de acción en columna, no en fila, para ahorrar espacio */
 .cell-actions {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 6px;
 }
 
 button.edit {
   background: #2563eb;
+  padding: 8px 14px;
+  font-size: 13px;
 }
 
 button.delete {
   background: #dc2626;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.row-editing {
+  background: #fffbeb !important;
+}
+
+.empty-state {
+  text-align: center;
+  color: #9ca3af;
+  padding: 32px 0 !important;
+}
+
+.loading-state {
+  text-align: center;
+  color: #9ca3af;
+  padding: 32px 0;
 }
 
 .panel-form.editing-mode button:not(.secondary):not(:disabled) {
@@ -217,14 +248,9 @@ button.delete {
     padding: 16px;
   }
 
-  table {
-    min-width: 100%;
-  }
-
   th,
   td {
-    padding: 12px 10px;
-    font-size: 14px;
+    padding: 10px 8px;
+    font-size: 13px;
   }
 }
-
