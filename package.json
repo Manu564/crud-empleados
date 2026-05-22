@@ -1,0 +1,12 @@
+{
+  "name": "crud-empleados",
+  "version": "1.0.0",
+  "description": "CRUD de empleados con React + Supabase desplegado en Vercel",
+  "private": true,
+  "dependencies": {
+    "@supabase/supabase-js": "^2.35.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/build",
+  "functions": {
+    "api/**/*.js": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    { "source": "/api/employees", "destination": "/api/employees" },
+    { "source": "/api/create", "destination": "/api/create" },
+    { "source": "/api/update/:id", "destination": "/api/update/[id]" },
+    { "source": "/api/delete/:id", "destination": "/api/delete/[id]" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
